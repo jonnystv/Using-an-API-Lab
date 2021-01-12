@@ -14,11 +14,39 @@
 <body>
 
     <div id="app">
+        <h1>CIA World Factbook</h1>
 
-        
+        <label for="cars">Pick a Country</label>
+
+        <!-- <select name="country-select" id="countries">
+            <option v-for="country in countries">{{ country.name }}</option>
+        </select> -->
+        <select id="country-select" v-model="selectedCountry">
+            <option v-for="country in countries" value="country">{{ country.name }}</option>
+        </select>
+        <!-- <select onchange="PostName.submit()"> -->
+        <!-- <select v-on:click="fetchCountries"> -->
+        <ul>
+            <li v-for="country in selectedCountry">
+                <span>{{ selectedCountry.name }}</span>
+                <span>{{ selectedCountry.population }}</span>
+            </li>
+        </ul>
+
+        <!-- <form v-on:submit.prevent="saveCountry">
+            <h3>Add a new Country</h3>
+            <input placeholder="Name" type="text" v-model="newAccount.name" />
+            <input type="number" v-model.number="selectedCountry.population" />
+            <input type="submit" value="Add Country" />
+        </form> -->
 
     </div>
-
 </body>
 
 </html>
+
+<!-- <form v-on:submit.prevent="saveCountry">
+        <h3>Add a new Country</h3>
+        <input placeholder="Name" type="text" v-model="newAccount.name" /> 
+        <input type="number" v-model.number="newCountry.population" />
+        <input type="submit" value="Add Country"/> -->
